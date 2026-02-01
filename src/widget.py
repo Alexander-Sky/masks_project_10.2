@@ -1,6 +1,6 @@
-from src.masks import get_mask_card_number, get_mask_account
 from datetime import datetime
-from typing import Union
+
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(input_string: str) -> str:
@@ -23,7 +23,7 @@ def mask_account_card(input_string: str) -> str:
         return f"Счет {masked_number}"
     else:
         parts = input_string.split()
-        card_type = ' '.join(parts[:-1])
+        card_type = " ".join(parts[:-1])
         card_number = parts[-1]
         try:
             masked_number = get_mask_card_number(card_number)
@@ -44,7 +44,7 @@ def get_date(date_string: str) -> str:
     Выход: "11.03.2024"
     """
     try:
-        dt = datetime.fromisoformat(date_string.replace('T', ' '))
+        dt = datetime.fromisoformat(date_string.replace("T", " "))
         return dt.strftime("%d.%m.%Y")
     except ValueError:
         raise ValueError("Неверный формат даты")
