@@ -30,3 +30,21 @@ def mask_account_card(input_string: str) -> str:
         except ValueError:
             raise ValueError("Неверный формат номера карты")
         return f"{card_type} {masked_number}"
+
+
+def get_date(date_string: str) -> str:
+    """
+    Преобразует дату из формата ISO в формат ДД.ММ.ГГГГ
+
+    :param date_string: строка с датой в формате ISO (YYYY-MM-DDTHH:MM:SS)
+    :return: строка с датой в формате ДД.ММ.ГГГГ
+
+    Пример:
+    Вход: "2024-03-11T02:26:18.671407"
+    Выход: "11.03.2024"
+    """
+    try:
+        dt = datetime.fromisoformat(date_string.replace('T', ' '))
+        return dt.strftime("%d.%m.%Y")
+    except ValueError:
+        raise ValueError("Неверный формат даты")
