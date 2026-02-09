@@ -13,7 +13,7 @@
 ### Установка проекта
 ```bash
 # Клонирование репозитория
-git clone <ссылка_на_репозиторий>
+git clone <git@github.com:Alexander-Sky/masks_project_10.2.git>
 
 # Установка зависимостей
 poetry install
